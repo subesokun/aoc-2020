@@ -2,7 +2,6 @@ mod utils;
 mod solution;
 
 use wasm_bindgen::prelude::*;
-use js_sys::Array;
 
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
@@ -12,7 +11,12 @@ use js_sys::Array;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
-pub fn run_solution(input_txt_string: String) -> Array {
-    // Lots of magic going in here...
-    return solution::run(input_txt_string).into_iter().map(JsValue::from).collect();
+pub fn run_solution_star1(input_txt_string: String) -> f64 {
+    return solution::run_star1(input_txt_string);
 }
+
+#[wasm_bindgen]
+pub fn run_solution_star2(input_txt_string: String) -> f64 {
+    return solution::run_star2(input_txt_string);
+}
+
